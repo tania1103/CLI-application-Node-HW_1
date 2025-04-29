@@ -23,11 +23,9 @@ async function getContactById(contactId) {
       return null;
     }
   
-    // Creează o listă actualizată fără contactul șters
     const updatedContacts = contacts.filter(contact => contact.id !== String(contactId));
     await fs.writeFile(contactsPath, JSON.stringify(updatedContacts, null, 2));
   
-    // Afișează informațiile despre contactul șters
     console.log(`Contact removed: 
       ID: ${contactToRemove.id}, 
       Name: ${contactToRemove.name}, 
